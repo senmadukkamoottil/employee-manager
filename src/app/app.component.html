@@ -1,0 +1,15 @@
+@if(currentRoute !== '/login') {
+  <app-left-sidebar
+    [isLeftSidebarCollapsed]="isLeftSidebarCollapsed()"
+    (changeIsLeftSidebarCollapsed)="changeIsLeftSidebarCollapsed($event)"
+  />
+
+  <app-main
+    [isLeftSidebarCollapsed]="isLeftSidebarCollapsed()"
+    [screenWidth]="screenWidth()"
+  />
+}
+
+@if (currentRoute === '/login') {
+    <router-outlet></router-outlet>
+}

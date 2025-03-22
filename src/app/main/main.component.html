@@ -1,0 +1,71 @@
+
+
+<div class="body" [ngClass]="sizeClass()">
+  <!-- <header class="p-3 mb-3 border-bottom">
+    <div class="container">
+      <div class="d-flex justify-content-end">
+
+
+        <div class="dropdown">
+
+            <div class="rounded-circle border d-flex justify-content-center align-items-center dropdown-toggle" data-bs-toggle="dropdown"
+                 style="width:50px;height:50px;"
+              alt="Avatar">
+            <i class="bi bi-person-fill text-info"></i>
+            </div>
+
+
+          <ul class="dropdown-menu text-small">
+            <li><a class="dropdown-item" href="#"><i class="bi bi-gear-wide-connected"></i> Settings</a></li>
+            <li><a class="dropdown-item" href="#"><i class="bi bi-person-lines-fill"></i> Profile</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#"><i class="bi bi-power"></i> Sign out</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="d-flex justify-content-start">
+        <h4 class="mb-1 border-bottom">Timesheets</h4>
+      </div>
+    </div>
+  </header> -->
+  <header class="p-3 mb-3 border-bottom">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
+          <span class="fs-3">Employee Manager</span>
+        </a>
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li></li>
+        </ul>
+
+        <!-- <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+          <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+        </form> -->
+
+        <div class="dropdown text-end">
+          <div class="rounded-circle border d-flex justify-content-center align-items-center dropdown-toggle" data-bs-toggle="dropdown"
+                 style="width:50px;height:50px;"
+              alt="Avatar">
+            <i class="bi bi-person-fill text-info"></i>
+            </div>
+          <ul class="dropdown-menu text-small">
+            <li><a class="dropdown-item" href="#"><i class="bi bi-gear-wide-connected"></i> Settings</a></li>
+            <li><a class="dropdown-item" href="#"><i class="bi bi-person-lines-fill"></i> Profile</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#" [routerLink]="['login']"><i class="bi bi-power"></i> Sign out</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+  <router-outlet></router-outlet>
+  <footer class="py-3 my-4 fixed-bottom" style="position: static">
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item"></li>
+    </ul>
+    <p class="text-center text-body-secondary">© 2025 Tech Group America Inc. All Rights Reserved.</p>
+  </footer>
+</div>
+
+
