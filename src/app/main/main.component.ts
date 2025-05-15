@@ -5,7 +5,7 @@ import { Component, computed, Input, input, OnInit } from '@angular/core';
   selector: 'app-main',
   standalone: false,
   templateUrl: './main.component.html',
-  styleUrl: './main.component.scss',
+  styleUrls: ['./main.component.scss'],
 })
 export class MainComponent {
   isLeftSidebarCollapsed = input.required<boolean>();
