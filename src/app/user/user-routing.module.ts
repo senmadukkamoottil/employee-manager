@@ -3,8 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { UserComponent } from './user.component';
 
 const routes: Routes = [
-  {path: '',
+  {
+    path: '',
     component: UserComponent
+  },
+  {
+    path: 'edit/:userId',
+  component: UserComponent
   }
 ];
 

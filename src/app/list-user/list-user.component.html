@@ -47,7 +47,7 @@
                         class="badge  rounded-pill">{{ user.IsActive }}</span>
                     </td>
                     <td>
-                      <a href="#" class="table-link text-info">
+                      <a href="#" [routerLink]="['../user/edit/', user.Id ]" class="table-link text-info">
                         <span class="fa-stack">
                           <i class="bi bi-pencil"></i>
                         </span>
@@ -59,87 +59,6 @@
                       </a>
                     </td>
                   </tr>
-                  <!-- <tr>
-                    <td>
-                      <span>1002</span>
-                    </td>
-                    <td>Data Analyst</td>
-                    <td class="text-center">
-                      Bob Johnson
-                    </td>
-                    <td>
-                      New York
-                    </td>
-                    <td class="text-center">
-                      <span class="badge bg-danger-subtle text-danger-emphasis rounded-pill">Admin</span>
-                    </td>
-                    <td>
-                      <a href="#" class="table-link text-info">
-                        <span class="fa-stack">
-                          <i class="bi bi-pencil"></i>
-                        </span>
-                      </a>&nbsp;
-                      <a href="#" class="table-link danger">
-                        <span class="fa-stack">
-                          <i class="bi bi-trash"></i>
-                        </span>
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <span>1003</span>
-                    </td>
-                    <td>Project Manager</td>
-                    <td class="text-center">
-                      Charlie Williams
-                    </td>
-                    <td>
-                      North Carolina
-                    </td>
-                    <td class="text-center">
-                      <span class="badge bg-success-subtle text-success-emphasis rounded-pill">Employee</span>
-                    </td>
-                    <td>
-                      <a href="#" class="table-link text-info">
-                        <span class="fa-stack">
-                          <i class="bi bi-pencil"></i>
-                        </span>
-                      </a>&nbsp;
-                      <a href="#" class="table-link danger">
-                        <span class="fa-stack">
-                          <i class="bi bi-trash"></i>
-                        </span>
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <span>1004</span>
-                    </td>
-                    <td>HR Manager</td>
-                    <td class="text-center">
-                      Eve Davis
-                    </td>
-                    <td>
-                      New York
-                    </td>
-                    <td class="text-center">
-                      <span class="badge bg-success-subtle text-success-emphasis rounded-pill">Employee</span>
-                    </td>
-                    <td>
-                      <a href="#" class="table-link text-info">
-                        <span class="fa-stack">
-                          <i class="bi bi-pencil"></i>
-                        </span>
-                      </a>&nbsp;
-                      <a href="#" class="table-link danger">
-                        <span class="fa-stack">
-                          <i class="bi bi-trash"></i>
-                        </span>
-                      </a>
-                    </td>
-                  </tr> -->
                   <!-- <tr>
                     <td colspan="6">
                       <nav aria-label="Page navigation example">
@@ -167,4 +86,3 @@
     </div>
   </div>
 </div>
-
