@@ -13,32 +13,38 @@
               <table class="table user-list">
                 <thead>
                   <tr>
-                    <th><span>Employee ID &nbsp;
-                        <span class="fa-stack">
+                    <th><span>Username</span></th> 
+                        <!-- <span class="fa-stack">
                           <i class="bi bi-sort-up"></i>
-                        </span>
-                      </span></th>
-                    <th><span>Job title</span></th>
+                        </span>-->
+                      
                     <th><span>Name</span></th>
-                    <th><span>Location</span></th>
-                    <th class="text-center"><span>Role</span></th>
+                    <th><span>Email</span></th>
+                    <th><span>Role</span></th>
+                    <th><span>Reg. Date</span></th>
+                    <th><span>Status</span></th>
+                    
                     <th  width= "10%" >Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
+                  <tr *ngFor="let user of userList ">
                     <td>
-                      <span>1001</span>
+                      {{ user.UserName }}
                     </td>
-                    <td>Software Engineer</td>
-                    <td class="text-center">
-                      Alice Smith
+                    <td>{{ user?.FirstName}}&nbsp;{{ user?.LastName}}</td>
+                    <td>
+                      {{ user.Email }}
                     </td>
                     <td>
-                      Seattle
+                      {{ user.UserType === 1? 'Admin' : 'Employee' }}
                     </td>
-                    <td class="text-center">
-                      <span class="badge bg-success-subtle text-success-emphasis rounded-pill">Employee</span>
+                    <td>
+                      {{ user.RegistrationDate | date }}
+                    </td>
+                    <td >
+                      <span [ngClass] = "{'bg-success-subtle text-success-emphasis': user.IsActive, 'bg-danger-subtle text-danger-emphasis': !user.IsActive  }"
+                        class="badge  rounded-pill">{{ user.IsActive }}</span>
                     </td>
                     <td>
                       <a href="#" class="table-link text-info">
@@ -53,7 +59,7 @@
                       </a>
                     </td>
                   </tr>
-                  <tr>
+                  <!-- <tr>
                     <td>
                       <span>1002</span>
                     </td>
@@ -133,8 +139,8 @@
                         </span>
                       </a>
                     </td>
-                  </tr>
-                  <tr>
+                  </tr> -->
+                  <!-- <tr>
                     <td colspan="6">
                       <nav aria-label="Page navigation example">
                         <ul class="pagination justify-content-end">
@@ -150,7 +156,8 @@
                         </ul>
                       </nav>
                     </td>
-                  </tr>
+                  </tr> -->
+                 
                 </tbody>
               </table>
             </div>
