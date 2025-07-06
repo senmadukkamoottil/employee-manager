@@ -1,0 +1,60 @@
+{
+  "timesheets": [
+    {
+      "employeeId": "1",
+      "date": "2025-06-23",
+      "hours": 7.5,
+      "project": "Web development",
+      "taskDescription": "Reviewed pull requests and provided feedback.",
+      "status": "Pending"
+    },
+    {
+      "employeeId": "1",
+      "date": "2025-06-24",
+      "hours": 6.0,
+      "project": "Web development",
+      "taskDescription": "Attended sprint planning meeting and refined backlog items. Fixed bugs reported in the customer feedback portal.",
+      "status": "Rejected"
+    },
+    {
+      "employeeId": "1",
+      "date": "2025-06-25",
+      "hours": 7.0,
+      "project": "Web development",
+      "taskDescription": "Fixed bugs reported in the customer feedback portal.",
+      "status": "Inactive"
+    },
+    {
+      "employeeId": "1",
+      "date": "2025-06-26",
+      "hours": 8.0,
+      "project": "Web development",
+      "taskDescription": "Designed database schema for new reporting feature.",
+      "status": "Submitted"
+    },
+    {
+      "employeeId": "1",
+      "date": "2025-06-27",
+      "hours": 8.0,
+      "project": "Web development",
+      "taskDescription": "Designed database schema for new reporting feature.",
+      "status": "Submitted"
+    },
+    {
+      "employeeId": "1",
+      "date": "2025-06-28",
+      "hours": 0,
+      "project": "",
+      "taskDescription": "",
+      "status": "Inactive"
+    },
+    {
+      "employeeId": "1",
+      "date": "2025-06-29",
+      "hours": 0,
+      "project": "",
+      "taskDescription": "",
+      "status": "Inactive"
+    }
+  ]
+}

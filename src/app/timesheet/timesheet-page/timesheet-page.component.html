@@ -16,10 +16,14 @@
   </div> -->
 
   <div class="row">
+    <div class="col-1"></div>
     <div class="col-3">
-
+      <div class="col-3" style="margin-top: 45px">
+        <ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next" 
+        (dateSelect)="onDateSelect($event)"/>
+      </div>
     </div>
-    <div class="col-9">
+    <div class="col-8">
       <h4 class="mb-3  border-bottom">Weekly summary</h4>
       <div class="card">
         <div class="card-body">
@@ -40,10 +44,10 @@
     </div>
   </div>
   <div class="row mt-5">
-    <div class="col-3" style="margin-top: 45px">
-      <ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next" />
+    <div class="col-1" style="margin-top: 45px">
+      <!-- <ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next" /> -->
     </div>
-    <div class="col-9">
+    <div class="col-11">
       <h4 class="mb-3  border-bottom">Daily breakdown</h4>
       <div class="row">
         <div class="col-lg-12">
@@ -61,73 +65,24 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>
-                      <span class="user-subhead">Sunday Mar 17</span>
-                    </td>
-                    <td></td>
-                    <td class="text-center">
-                      0
-                    </td>
-                    <td>
 
-                    </td>
-                    <td class="text-center">
-                      <span class="badge bg-dark-subtle text-dark-emphasis rounded-pill">Inactive</span>
-                    </td>
-                    <td >
-                      <!-- <a href="#" class="table-link text-info">
-                        <span class="fa-stack">
-                          <i class="bi bi-pencil"></i>
-                        </span>
-                      </a>
-                      <a href="#" class="table-link danger">
-                        <span class="fa-stack">
-                          <i class="bi bi-trash"></i>
-                        </span>
-                      </a> -->
-                    </td>
-                  </tr>
-                  <tr>
+                  <tr *ngFor="let row of timesheets">
                     <td>
-                      <span class="user-subhead">Monday Mar 18</span>
+                      <span class="user-subhead">{{ row.date | date: 'EEEE'}}<br/>{{ row.date}}</span>
                     </td>
-                    <td>Wesite Redesign</td>
+                    <td>{{row.project}}</td>
                     <td class="text-center">
-                      8
+                      {{row.hours}}
                     </td>
                     <td>
-                      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                      {{row.taskDescription}}
                     </td>
                     <td class="text-center">
-                      <span class="badge bg-info-subtle text-info-emphasis rounded-pill">Submitted</span>
-                    </td>
-                    <td>
-                      <a href="#" class="table-link text-info mr-2">
-                        <span class="fa-stack">
-                          <i class="bi bi-pencil"></i>
-                        </span>
-                      </a>&nbsp;
-                      <a href="#" class="table-link danger">
-                        <span class="fa-stack">
-                          <i class="bi bi-trash"></i>
-                        </span>
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <span class="user-subhead">Tuesday Mar 19</span>
-                    </td>
-                    <td>Wesite Redesign</td>
-                    <td class="text-center">
-                      8
-                    </td>
-                    <td>
-                      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    </td>
-                    <td class="text-center">
-                      <span class="badge bg-warning-subtle text-warning-emphasis rounded-pill">Pending</span>
+                      <span *ngIf="row.status === 'Inactive'" class="badge bg-dark-subtle text-dark-emphasis rounded-pill">Inactive</span>
+                      <span *ngIf="row.status === 'Submitted'" class="badge bg-info-subtle text-info-emphasis rounded-pill">Submitted</span>
+                      <span *ngIf="row.status === 'Pending'" class="badge bg-warning-subtle text-warning-emphasis rounded-pill">Pending</span>
+                      <span *ngIf="row.status === 'Approved'" class="badge bg-danger-subtle text-danger-emphasis rounded-pill">Rejected</span>
+                      <span *ngIf="row.status === 'Rejected'" class="badge bg-success-subtle text-success-emphasis rounded-pill">Approved</span>
                     </td>
                     <td >
                       <a href="#" class="table-link text-info">
@@ -142,114 +97,8 @@
                       </a>
                     </td>
                   </tr>
-                  <tr>
-                    <td>
-                      <span class="user-subhead">Wednesday Mar 19</span>
-                    </td>
-                    <td>Wesite Redesign</td>
-                    <td class="text-center">
-                      8
-                    </td>
-                    <td>
-                      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    </td>
-                    <td class="text-center">
-                      <span class="badge bg-success-subtle text-success-emphasis rounded-pill">Approved</span>
-                    </td>
-                    <td >
-                      <a href="#" class="table-link text-info">
-                        <span class="fa-stack">
-                          <i class="bi bi-pencil"></i>
-                        </span>
-                      </a>&nbsp;
-                      <a href="#" class="table-link danger">
-                        <span class="fa-stack">
-                          <i class="bi bi-trash"></i>
-                        </span>
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <span class="user-subhead">Thursday Mar 19</span>
-                    </td>
-                    <td>Wesite Redesign</td>
-                    <td class="text-center">
-                      8
-                    </td>
-                    <td>
-                      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    </td>
-                    <td class="text-center">
-                      <span class="badge bg-danger-subtle text-danger-emphasis rounded-pill">Rejected</span>
-                    </td>
-                    <td >
-                      <a href="#" class="table-link text-info">
-                        <span class="fa-stack">
-                          <i class="bi bi-pencil"></i>
-                        </span>
-                      </a>&nbsp;
-                      <a href="#" class="table-link danger">
-                        <span class="fa-stack">
-                          <i class="bi bi-trash"></i>
-                        </span>
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <span class="user-subhead">Friday Mar 19</span>
-                    </td>
-                    <td>Wesite Redesign</td>
-                    <td class="text-center">
-                      0
-                    </td>
-                    <td>
-                      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    </td>
-                    <td class="text-center">
-                      <span class="badge bg-dark-subtle text-dark-emphasis rounded-pill">Inactive</span>
-                    </td>
-                    <td >
-                      <a href="#" class="table-link text-info">
-                        <span class="fa-stack">
-                          <i class="bi bi-pencil"></i>
-                        </span>
-                      </a>&nbsp;
-                      <a href="#" class="table-link danger">
-                        <span class="fa-stack">
-                          <i class="bi bi-trash"></i>
-                        </span>
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <span class="user-subhead">Saturday Mar 23</span>
-                    </td>
-                    <td></td>
-                    <td class="text-center">
-                      0
-                    </td>
-                    <td>
 
-                    </td>
-                    <td class="text-center">
-                      <span class="badge bg-dark-subtle text-dark-emphasis rounded-pill">Inactive</span>
-                    </td>
-                    <td >
-                      <!-- <a href="#" class="table-link text-info">
-                        <span class="fa-stack">
-                          <i class="bi bi-pencil"></i>
-                        </span>
-                      </a>
-                      <a href="#" class="table-link danger">
-                        <span class="fa-stack">
-                          <i class="bi bi-trash"></i>
-                        </span>
-                      </a> -->
-                    </td>
-                  </tr>
+
                 </tbody>
               </table>
             </div>
