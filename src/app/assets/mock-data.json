@@ -56,5 +56,29 @@
       "taskDescription": "",
       "status": "Inactive"
     }
+  ],
+  "registration": [
+    {
+      "Id": 101,
+      "UserName": "johndoe",
+      "FirstName": "John",
+      "LastName": "Doe",
+      "Password": "securePassword123",
+      "Email": "john.doe@example.com",
+      "IsActive": true,
+      "Type": 1,
+      "RegistrationDate": "2023-01-15T10:30:00Z"
+    },
+    {
+      "Id": 102,
+      "UserName": "janesmith",
+      "FirstName": "Jane",
+      "LastName": "Smith",
+      "Password": "anotherSecurePassword456",
+      "Email": "jane.smith@example.com",
+      "IsActive": false,
+      "Type": 2,
+      "RegistrationDate": "2022-11-20T14:00:00Z"
+    }
   ]
 }
