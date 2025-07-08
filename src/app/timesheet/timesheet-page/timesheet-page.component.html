@@ -45,14 +45,16 @@
   </div>
   <div class="row mt-5">
     <div class="col-1" style="margin-top: 45px">
-      <!-- <ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next" /> -->
     </div>
+    <!-- {{this.timesheetForm.value | json}} -->
     <div class="col-11">
       <h4 class="mb-3  border-bottom">Daily breakdown</h4>
       <div class="row">
+        <!-- <div class="col-lg-1"></div> -->
         <div class="col-lg-12">
           <div class="main-box clearfix">
             <div class="table-responsive">
+              <form [formGroup]="timesheetForm" (ngSubmit)="saveTimesheets()">
               <table class="table user-list">
                 <thead>
                   <tr>
@@ -64,25 +66,27 @@
                     <th  width= "10%" >Action</th>
                   </tr>
                 </thead>
-                <tbody>
-
-                  <tr *ngFor="let row of timesheets">
+                <tbody formArrayName="daily" >
+                  
+                <tr *ngFor="let row of timesheetForm.controls.daily.controls; let i = index" [formGroupName]="i">
                     <td>
-                      <span class="user-subhead">{{ row.date | date: 'EEEE'}}<br/>{{ row.date}}</span>
-                    </td>
-                    <td>{{row.project}}</td>
-                    <td class="text-center">
-                      {{row.hours}}
+                      <span class="user-subhead">{{ row.get('date')?.value | date: 'EEEE'}}<br/>{{ row.get('date')?.value}}</span>
                     </td>
                     <td>
-                      {{row.taskDescription}}
+                      <input type="text" formControlName="project">
                     </td>
                     <td class="text-center">
-                      <span *ngIf="row.status === 'Inactive'" class="badge bg-dark-subtle text-dark-emphasis rounded-pill">Inactive</span>
-                      <span *ngIf="row.status === 'Submitted'" class="badge bg-info-subtle text-info-emphasis rounded-pill">Submitted</span>
-                      <span *ngIf="row.status === 'Pending'" class="badge bg-warning-subtle text-warning-emphasis rounded-pill">Pending</span>
-                      <span *ngIf="row.status === 'Approved'" class="badge bg-danger-subtle text-danger-emphasis rounded-pill">Rejected</span>
-                      <span *ngIf="row.status === 'Rejected'" class="badge bg-success-subtle text-success-emphasis rounded-pill">Approved</span>
+                      <input type="text" formControlName="hours">
+                    </td>
+                    <td>
+                      <input type="text" formControlName="taskDescription">
+                    </td>
+                    <td class="text-center">
+                      <span *ngIf="row.get('status')?.value === 'Inactive'" class="badge bg-dark-subtle text-dark-emphasis rounded-pill">Inactive</span>
+                      <span *ngIf="row.get('status')?.value === 'Submitted'" class="badge bg-info-subtle text-info-emphasis rounded-pill">Submitted</span>
+                      <span *ngIf="row.get('status')?.value === 'Pending'" class="badge bg-warning-subtle text-warning-emphasis rounded-pill">Pending</span>
+                      <span *ngIf="row.get('status')?.value === 'Approved'" class="badge bg-danger-subtle text-danger-emphasis rounded-pill">Rejected</span>
+                      <span *ngIf="row.get('status')?.value === 'Rejected'" class="badge bg-success-subtle text-success-emphasis rounded-pill">Approved</span>
                     </td>
                     <td >
                       <a href="#" class="table-link text-info">
@@ -101,7 +105,10 @@
 
                 </tbody>
               </table>
+              <button class="w-25 btn btn-primary btn-lg" type="submit">Submit</button>
+            </form>
             </div>
+            
           </div>
         </div>
       </div>
