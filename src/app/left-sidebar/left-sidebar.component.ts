@@ -13,11 +13,6 @@ export class LeftSidebarComponent {
   changeIsLeftSidebarCollapsed = output<boolean>();
   items = [
     {
-      routeLink: 'dashboard',
-      icon: 'bi bi-speedometer2',
-      label: 'Dashboard',
-    },
-    {
       routeLink: 'timesheet',
       icon: 'bi bi-calendar-week',
       label: 'Timesheets',

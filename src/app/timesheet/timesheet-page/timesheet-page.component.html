@@ -76,10 +76,10 @@
                       <input type="text" formControlName="project">
                     </td>
                     <td class="text-center">
-                      <input type="text" formControlName="hours">
+                      <input type="text" formControlName="hours" style="width: 50%">
                     </td>
                     <td>
-                      <input type="text" formControlName="taskDescription">
+                      <textarea style="width: 100%" formControlName="taskDescription"></textarea>
                     </td>
                     <td class="text-center">
                       <span *ngIf="row.get('status')?.value === 'Inactive'" class="badge bg-dark-subtle text-dark-emphasis rounded-pill">Inactive</span>

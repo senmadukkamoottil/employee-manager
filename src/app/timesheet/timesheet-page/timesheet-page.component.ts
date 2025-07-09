@@ -54,7 +54,7 @@ export class TimesheetPageComponent {
   onDateSelect(date: NgbDateStruct) {
     // Perform actions when a date is selected
 
-    const d = new Date(date.year, date.month-1, date.day);;
+    const d = new Date(date.year, date.month-1, date.day);
   const day = d.getDay(),
     diff = d.getDate() - day + (day == 0 ? -6 : 1); // adjust when day is sunday
   console.log('Week start selected:', new Date(d.setDate(diff)));
