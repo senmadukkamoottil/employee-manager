@@ -1,0 +1,24 @@
+<div class="side-nav-header">
+    <img 
+        [height]="profilePictureSize()" 
+        [width]="profilePictureSize()" 
+        src="assets/images/js.png"/>
+    <div class="header-text" [class.hide-sidenav-text]="sidenavCollapsed()">
+        <h2>Sen</h2>
+        <p>Administrator</p>
+    </div>
+</div>
+<mat-nav-list>
+    <a mat-list-item *ngFor="let item of menuItems()" 
+        [routerLink]="item.route"
+        routerLinkActive
+        #rla="routerLinkActive"
+        [activated]="rla.isActive">
+        <mat-icon
+            [fontSet]="rla.isActive ? 'material-icons' : 'material-icons-outlined'"
+            matListItemIcon>{{ item.icon }}</mat-icon>
+        @if (!sidenavCollapsed()){
+        <span matListItemTitle>{{ item.label }}</span>
+        }
+    </a>
+</mat-nav-list>

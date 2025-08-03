@@ -1,15 +1,17 @@
-@if(currentRoute !== '/login') {
-  <app-left-sidebar
-    [isLeftSidebarCollapsed]="isLeftSidebarCollapsed()"
-    (changeIsLeftSidebarCollapsed)="changeIsLeftSidebarCollapsed($event)"
-  />
+<mat-toolbar  color="primary">
+  <button matIconButton class="example-icon" aria-label="Example icon-button with menu icon"
+    (click)="collapsed.set(!collapsed())">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Employee manager</span>
+  <span class="example-spacer"></span>
+</mat-toolbar>
+<mat-sidenav-container>
 
-  <app-main
-    [isLeftSidebarCollapsed]="isLeftSidebarCollapsed()"
-    [screenWidth]="screenWidth()"
-  />
-}
-
-@if (currentRoute === '/login') {
+  <mat-sidenav opened mode="side" [style.width]="sidenavWidth()">
+    <app-custom-sidenav [collpased]="collapsed()"></app-custom-sidenav>
+  </mat-sidenav>
+  <mat-sidenav-content class="content" [style.margin-left]="sidenavWidth()">
     <router-outlet></router-outlet>
-}
+  </mat-sidenav-content>
+</mat-sidenav-container>

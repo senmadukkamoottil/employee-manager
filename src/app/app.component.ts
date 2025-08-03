@@ -1,36 +1,28 @@
-import { Component, HostListener, OnInit, signal } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { filter } from 'rxjs';
+import { CommonModule } from '@angular/common';
+import { Component, computed, signal } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { RouterOutlet } from '@angular/router';
+import { CustomSidenav } from './components/custom-sidenav/custom-sidenav';
 
 @Component({
   selector: 'app-root',
+  imports: [
+    RouterOutlet, 
+    CommonModule, 
+    MatToolbarModule, 
+    MatButtonModule,
+    MatIconModule, 
+    MatSidenavModule,
+  CustomSidenav],
   templateUrl: './app.component.html',
-  standalone: false,
-  styleUrl: './app.component.scss',
+  styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'employee-manage';
-  isLeftSidebarCollapsed = signal<boolean>(false);
-  screenWidth = signal<number>(window.innerWidth);
-  currentRoute = '';
+  protected title = 'employee-manager';
+  collapsed = signal(false);
+  sidenavWidth = computed(() => this.collapsed() ? '65px' : '200px' );
 
-  constructor(private router: Router) {
-    this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd)
-    ).subscribe((event: NavigationEnd) => {
-      this.currentRoute = event.url;
-    });
-  }
-
-  @HostListener('window:resize')
-  onResize() {
-    this.screenWidth.set(window.innerWidth);
-    if (this.screenWidth() < 768) {
-      this.isLeftSidebarCollapsed.set(true);
-    }
-  }
-
-  changeIsLeftSidebarCollapsed(isLeftSidebarCollapsed: boolean): void {
-    this.isLeftSidebarCollapsed.set(isLeftSidebarCollapsed);
-  }
 }
